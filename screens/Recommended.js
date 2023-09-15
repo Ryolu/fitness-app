@@ -6,14 +6,13 @@ const videos = [
   {
     id: "1",
     title: "Workout",
-    url: "https://v4.cdnpk.net/videvo_files/video/free/video0478/large_watermarked/_import_62735f9bf30128.25615372_FPpreview.mp4", // Replace with your video URL
+    url: "https://www.youtube.com/watch?v=FDNIz3FVf10&ab_channel=YourAverageGent",
   },
   {
     id: "2",
     title: "Gym",
-    url: "https://v3.cdnpk.net/videvo_files/video/premium/partners0019/large_watermarked/BB_acb4635c-2509-4fa4-86cf-fc6bcbd52810_FPpreview.mp4", // Replace with your video URL
+    url: "https://v3.cdnpk.net/videvo_files/video/premium/partners0019/large_watermarked/BB_acb4635c-2509-4fa4-86cf-fc6bcbd52810_FPpreview.mp4",
   },
-  // Add more video objects as needed
 ];
 
 const RecommendedVideosScreen = () => {
@@ -45,7 +44,7 @@ const RecommendedVideosScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    text: {
+  text: {
     fontSize: 24,
     marginBottom: 20,
   },
