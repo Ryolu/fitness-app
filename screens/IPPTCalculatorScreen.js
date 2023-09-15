@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TextInput, Button, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Button,
+  Image,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { useAppContext } from "./context";
 
 const IPPTCalculatorScreen = () => {
@@ -320,47 +329,49 @@ const IPPTCalculatorScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>IPPT Calculator</Text>
-      <Image
-        source={{
-          uri: "https://plus.unsplash.com/premium_photo-1666736570009-76c9551729bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvcmtvdXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1000&q=60",
-        }}
-        style={styles.image}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        onChangeText={(text) => setAge(text)}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Push-Ups Count"
-        onChangeText={(text) => setPushUps(text)}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Sit-Ups Count"
-        onChangeText={(text) => setSitUps(text)}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="2.4km Run Time (seconds)"
-        onChangeText={(text) => setRunTime(text)}
-        keyboardType="numeric"
-      />
-      <View
-        style={{ flexDirection: "row", height: 40, justifyContent: "center" }}
-      >
-        <Button title="Calculate Score" onPress={calculateIPPTScore} />
-        <Text style={[styles.result, { marginLeft: "5%" }]}>
-          Total Score: {score}
-        </Text>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Text style={styles.title}>IPPT Calculator</Text>
+        <Image
+          source={{
+            uri: "https://plus.unsplash.com/premium_photo-1666736570009-76c9551729bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvcmtvdXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1000&q=60",
+          }}
+          style={styles.image}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Age"
+          onChangeText={(text) => setAge(text)}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Push-Ups Count"
+          onChangeText={(text) => setPushUps(text)}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Sit-Ups Count"
+          onChangeText={(text) => setSitUps(text)}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="2.4km Run Time (seconds)"
+          onChangeText={(text) => setRunTime(text)}
+          keyboardType="numeric"
+        />
+        <View
+          style={{ flexDirection: "row", height: 40, justifyContent: "center" }}
+        >
+          <Button title="Calculate Score" onPress={calculateIPPTScore} />
+          <Text style={[styles.result, { marginLeft: "5%" }]}>
+            Total Score: {score}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

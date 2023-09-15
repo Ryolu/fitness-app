@@ -4,10 +4,13 @@ import { Calendar } from "react-native-calendars";
 
 const CalendarScreen = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State to store the selected date
-const setReminder = () => {
+  const setReminder = () => {
     if (selectedDate) {
       // Implement your reminder logic here (e.g., schedule a notification)
-      Alert.alert("Reminder Set", `You have set a reminder for ${selectedDate}`);
+      Alert.alert(
+        "Reminder Set",
+        `You have set a reminder for ${selectedDate}`
+      );
     } else {
       Alert.alert("Error", "Please select a date before setting a reminder.");
     }
