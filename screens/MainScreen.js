@@ -4,6 +4,13 @@ import { useNavigation } from "@react-navigation/native"; // Import the useNavig
 
 const MainScreen = ({ navigation }) => {
   // Define navigation actions for each button press
+
+  const navigateToLogin = () => {
+    // Navigate to the "Login" screen
+    // Implement navigation logic as per your navigation stack
+    navigation.navigate("Login")
+  };
+
   const navigateToDailyExercise = () => {
     // Navigate to the "Daily Exercise" screen
     // Implement navigation logic as per your navigation stack
@@ -40,6 +47,12 @@ const MainScreen = ({ navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Logout Button */}
+      <TouchableOpacity style={styles.logoutButton} onPress={navigateToLogin}>
+        <Text style={{ color: "red", fontSize: 16, fontWeight: "bold" }}>
+          Logout
+        </Text>
+      </TouchableOpacity>
       {/* Image */}
       <Image
         source={{
@@ -98,6 +111,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 20,
+  },
+  logoutButton: {
+    position: "absolute",
+    top: 50,
+    right: 10,
+    zIndex: 1,
+    backgroundColor: "blue",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
   },
   button: {
     flex: 1,

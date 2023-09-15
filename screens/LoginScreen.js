@@ -1,40 +1,62 @@
-import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 const LoginScreen = () => {
   // You can define your login logic here
 const navigation = useNavigation(); // Initialize the navigation object
+// State variables to store the entered username and password
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
+const [error, setError] = useState(""); // State variable to store login error message
+
+// Define a database of user credentials
+const userDatabase = {
+  user1: "password1",
+  user2: "password2",
+  // Add more users as needed
+};
 const handleLogin = () => {
-    // You can implement your login logic here
-    // If login is successful, navigate to the "Main" screen
-    navigation.navigate("Main");
+    // Check if the entered username exists in the userDatabase
+    if (userDatabase.hasOwnProperty(username)) {
+      // Check if the entered password matches the stored password
+      if (userDatabase[username] === password) {
+        // Successful login, navigate to the "Main" screen
+        navigation.navigate("Main");
+        setError(""); // Clear any previous login errors
+      } else {
+        setError("Incorrect password. Please try again.");
+      }
+    } else {
+      setError("Username not found. Please register an account.");
+    }
   };
   return (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
-        // You can handle input changes here
+        onChangeText={(text) => setUsername(text)} // Update the 'username' state
+        value={username} // Set the 'value' prop to display the current state value
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
         secureTextEntry={true}
-        // You can handle input changes here
+        onChangeText={(text) => setPassword(text)} // Update the 'password' state
+        value={password} // Set the 'value' prop to display the current state value
       />
       <TouchableOpacity
-        style={styles.loginButton}
-        onPress={() => {
-            handleLogin();
-          // You can implement the login functionality here
-          // For example, you can use AsyncStorage or make an API request to authenticate the user
-        }}
-      >
-        <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
+          style={styles.loginButton}
+          onPress={handleLogin}
+        >
+          <Text style={styles.loginButtonText}>Login</Text>
+        </TouchableOpacity>
+        {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -66,6 +88,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     textAlign: "center",
+  },
+  errorText: {
+    color: "red",
+    marginTop: 10,
   },
 });
 
