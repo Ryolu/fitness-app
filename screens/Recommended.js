@@ -1,17 +1,31 @@
 import React from "react";
-import { View, StyleSheet, FlatList, Text, Button } from "react-native";
-import { Video, ResizeMode } from "expo-av";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Text,
+  Pressable,
+  Linking,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { Thumbnail } from "react-native-thumbnail-video";
 
 const videos = [
   {
-    id: "1",
-    title: "Workout",
-    url: "https://www.youtube.com/watch?v=FDNIz3FVf10&ab_channel=YourAverageGent",
+    id: "FDNIz3FVf10",
+    title: "Getting IPPT Gold",
+    url: "https://www.youtube.com/watch?v=FDNIz3FVf10",
   },
   {
-    id: "2",
-    title: "Gym",
-    url: "https://v3.cdnpk.net/videvo_files/video/premium/partners0019/large_watermarked/BB_acb4635c-2509-4fa4-86cf-fc6bcbd52810_FPpreview.mp4",
+    id: "0a6vV1FRW1o",
+    title: "Training your stamina",
+    url: "https://www.youtube.com/watch?v=0a6vV1FRW1o",
+  },
+  {
+    id: "eIP20t1ltmY",
+    title: "Training with ELISS",
+    url: "https://www.youtube.com/watch?v=eIP20t1ltmY",
   },
 ];
 
@@ -25,17 +39,13 @@ const RecommendedVideosScreen = () => {
         renderItem={({ item }) => (
           <View style={styles.videoContainer}>
             <Text style={styles.text}>{item.title}</Text>
-            <Video
-              source={{ uri: item.url }}
-              style={styles.video}
-              controls={true}
+            <Thumbnail
+              imageWidth="100%"
+              url={item.url}
+              onPress={() => {
+                Linking.openURL(item.url);
+              }}
             />
-            <View style={styles.buttons}>
-              <Button
-                title={status.isPlaying ? "Pause" : "Play"}
-                onPress={() => {}}
-              />
-            </View>
           </View>
         )}
       />
@@ -50,18 +60,19 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
   },
   videoContainer: {
-    marginVertical: 10,
-    padding: 10,
-    borderColor: "#cccccc",
+    marginVertical: "5%",
+    marginHorizontal: "2.5%",
+    padding: "5%",
+    borderColor: "black",
     borderWidth: 1,
     borderRadius: 5,
   },
   video: {
+    flex: 1,
     width: "100%",
-    height: 200,
+    backgroundColor: "white",
   },
 });
 
