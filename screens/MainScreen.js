@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 const MainScreen = ({ navigation }) => {
@@ -7,43 +14,37 @@ const MainScreen = ({ navigation }) => {
 
   const navigateToLogin = () => {
     // Navigate to the "Login" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Login")
+    navigation.navigate("Login");
   };
 
   const navigateToDailyExercise = () => {
     // Navigate to the "Daily Exercise" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Dailies")
+    navigation.navigate("Dailies");
   };
 
   const navigateToIPPTCalculator = () => {
     // Navigate to the "IPPT Calculator" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Calculator")
+    navigation.navigate("Calculator");
   };
 
   const navigateToCalendar = () => {
     // Navigate to the "Calendar" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Calendar")
+    navigation.navigate("Calendar");
   };
 
   const navigateToIPPTRecords = () => {
     // Navigate to the "IPPT Records" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Records")
+    navigation.navigate("Records");
   };
 
   const navigateToFinder = () => {
     // Navigate to the "Finder" screen
-    // Implement navigation logic as per your navigation stack
-    navigation.navigate("Finder")
+    navigation.navigate("Finder");
   };
 
   const navigateToRecommend = () => {
-    navigation.navigate("Recommended")
-  }
+    navigation.navigate("Recommended");
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -62,13 +63,19 @@ const MainScreen = ({ navigation }) => {
       />
       {/* Buttons in rows */}
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={navigateToDailyExercise}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={navigateToDailyExercise}
+        >
           <Text style={styles.buttonText}>Daily Exercise and mission</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={navigateToIPPTCalculator}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={navigateToIPPTCalculator}
+        >
           <Text style={styles.buttonText}>IPPT Calculator</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={navigateToCalendar}>
@@ -137,7 +144,7 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     width: "100%",
-    aspectRatio: 16 / 9, // Adjust the aspect ratio to your video's dimensions
+    aspectRatio: 16 / 9,
     marginBottom: 20,
   },
 });
