@@ -12,7 +12,7 @@ import {
 import { useAppContext } from "./context";
 
 const IPPTCalculatorScreen = () => {
-  const { addIPPTRecord } = useAppContext(); // Use the context hook to access the function
+  const { addIPPTRecord } = useAppContext();
 
   const [age, setAge] = useState("");
   const [pushUps, setPushUps] = useState("");
@@ -324,7 +324,6 @@ const IPPTCalculatorScreen = () => {
       totalScore,
     };
 
-    // Add the new record to the context
     addIPPTRecord(newRecord);
   };
 

@@ -6,7 +6,6 @@ const CalendarScreen = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State to store the selected date
   const setReminder = () => {
     if (selectedDate) {
-      // Implement your reminder logic here (e.g., schedule a notification)
       Alert.alert(
         "Reminder Set",
         `You have set a reminder for ${selectedDate}`
@@ -15,11 +14,9 @@ const CalendarScreen = () => {
       Alert.alert("Error", "Please select a date before setting a reminder.");
     }
   };
-  // Define your event data here if needed
   const events = {
     "2023-09-10": { selected: true, marked: true },
     "2023-09-15": { selected: true, marked: true },
-    // Add more events as needed
   };
 
   // Function to handle date selection

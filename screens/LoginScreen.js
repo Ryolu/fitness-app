@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 const LoginScreen = () => {
-  // You can define your login logic here
-const navigation = useNavigation(); // Initialize the navigation object
-// State variables to store the entered username and password
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
-const [error, setError] = useState(""); // State variable to store login error message
+  const navigation = useNavigation(); // Initialize the navigation object
+  // State variables to store the entered username and password
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // State variable to store login error message
 
-// Define a database of user credentials
-const userDatabase = {
-  user1: "password1",
-  user2: "password2",
-  // Add more users as needed
-};
-const handleLogin = () => {
+  // Define a database of user credentials
+  const userDatabase = {
+    user1: "password1",
+    user2: "password2",
+  };
+  const handleLogin = () => {
     // Check if the entered username exists in the userDatabase
     if (userDatabase.hasOwnProperty(username)) {
       // Check if the entered password matches the stored password
@@ -33,29 +39,26 @@ const handleLogin = () => {
   };
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        onChangeText={(text) => setUsername(text)} // Update the 'username' state
-        value={username} // Set the 'value' prop to display the current state value
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-        onChangeText={(text) => setPassword(text)} // Update the 'password' state
-        value={password} // Set the 'value' prop to display the current state value
-      />
-      <TouchableOpacity
-          style={styles.loginButton}
-          onPress={handleLogin}
-        >
+      <View style={styles.container}>
+        <Text style={styles.title}>Login</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          onChangeText={(text) => setUsername(text)} // Update the 'username' state
+          value={username} // Set the 'value' prop to display the current state value
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)} // Update the 'password' state
+          value={password} // Set the 'value' prop to display the current state value
+        />
+        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
         {error ? <Text style={styles.errorText}>{error}</Text> : null}
-    </View>
+      </View>
     </TouchableWithoutFeedback>
   );
 };
