@@ -8,7 +8,7 @@ export const useAppContext = () => {
   return useContext(AppContext);
 };
 
-// Create a provider component to wrap your app with
+// Create a provider component to wrap the app with
 export const AppContextProvider = ({ children }) => {
   const [ipptRecords, setIPPTRecords] = useState([]);
 
