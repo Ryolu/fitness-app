@@ -1,6 +1,4 @@
-"# fitness-app" 
-
-To run codes:
+## To run codes:
 
 1. Use Expo Go on Andriod or IOS emulator/application
 
@@ -12,7 +10,7 @@ To run codes:
 
 5. Explore the app
 
-Troubleshooting:
+## Troubleshooting:
 
 - node.js packages related to react native/ expo should be updated to the latest version
 

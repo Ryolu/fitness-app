@@ -4,7 +4,6 @@ import { useAppContext } from "./context"; // Import the context hook
 
 const RecordsScreen = () => {
   const { ipptRecords } = useAppContext(); // Access the records from the context
-console.log({ ipptRecords})
   return (
     <View style={styles.container}>
       <Text style={styles.title}>App Records</Text>
