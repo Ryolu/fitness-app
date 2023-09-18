@@ -2,6 +2,7 @@ import { StyleSheet, Text, SafeAreaView, Image, Pressable } from "react-native";
 import React, { useState, useContext } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { FitnessItems } from "../Context";
+import { Ionicons } from "@expo/vector-icons";
 
 const FitScreen = () => {
   const route = useRoute();
@@ -23,11 +24,18 @@ const FitScreen = () => {
   console.log(completed, "completed excersise");
   return (
     <SafeAreaView>
+      
       <Image
         style={{ width: "100%", height: 370 }}
         source={{ uri: current.image }}
       />
-
+      <Ionicons
+        onPress={() => navigation.goBack()}
+        style={{ position: "absolute", top: 60, left: 20 }}
+        name="arrow-back-outline"
+        size={28}
+        color="black"
+        />
       <Text
         style={{
           marginLeft: "auto",
