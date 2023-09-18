@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Text,
-  Pressable,
-  Linking,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, FlatList, Text, Pressable, Linking, Image, TouchableOpacity} from "react-native";
 import { Thumbnail } from "react-native-thumbnail-video";
 
 const videos = [

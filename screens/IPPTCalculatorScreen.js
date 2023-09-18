@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Button,
-  Image,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+import {StyleSheet, View, Text, TextInput, Button, Image, TouchableWithoutFeedback, Keyboard} from "react-native";
 import { useAppContext } from "./context";
 
 const IPPTCalculatorScreen = () => {

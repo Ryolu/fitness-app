@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from "react-native";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 const MainScreen = ({ navigation }) => {
@@ -43,6 +36,7 @@ const MainScreen = ({ navigation }) => {
   };
 
   const navigateToRecommend = () => {
+    // Navigate to the "Recommended" screen
     navigation.navigate("Recommended");
   };
 

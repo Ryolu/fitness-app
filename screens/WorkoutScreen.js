@@ -1,19 +1,12 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Pressable,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, Image, Pressable, ScrollView} from "react-native";
 import React, { useContext } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { FitnessItems } from "../Context";
 import { AntDesign } from "@expo/vector-icons";
+
 const WorkOutScreen = () => {
   const route = useRoute();
-  //   console.log(route.params);
   const navigation = useNavigation();
   const { completed, setCompleted } = useContext(FitnessItems);
   return (

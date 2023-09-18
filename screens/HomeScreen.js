@@ -13,7 +13,7 @@ const HomeScreen = () => {
     workout,
   } = useContext(FitnessItems);
   return (
-    <ScrollView style={{marginTop:40}}>
+    <ScrollView>
       <View
         style={{
           backgroundColor: "#CD853F",
